@@ -6,7 +6,7 @@ export const ProductLayout = () =>
       <>
       <ul>
         <li> <NavLink to="/products/productslist" style={({isActive})=> {return{backgroundColor: isActive ? 'red' : ''}}}> List of Products </NavLink></li>
-
+        <li> <NavLink to="/products/studentslist" style={({isActive})=> {return{backgroundColor: isActive ? 'red' : ''}}}> Student List  </NavLink></li>
 <li> <NavLink to="/products/productdetails/1/mobile" style={({isActive})=> {return{backgroundColor: isActive ? 'red' : ''}}}> Product Details </NavLink></li>
 </ul>
 

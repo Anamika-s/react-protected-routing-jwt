@@ -12,10 +12,12 @@ import { NavrBar } from './components/NavrBar';
 import { ProductDertails } from './ProductDertails';
 import { Layout } from './components/Layout'
 import { ProductLayout } from './ProductLayout';
+import { Student } from './components/Student';
+import { Protected } from './Protected';
 
 
 function App() {
- let isLoggedin = true; 
+ let isLoggedin = false; 
  let data =
  {
    "msg" : "User is not logged in"
@@ -34,12 +36,13 @@ function App() {
   <Route path="about" element={<AboutUs/>}/>
   <Route path="contact" element={<ContactUs/>}/>
   <Route path="dashboard" element={isLoggedin ? <Dashboard/> : <Navigate to="/login" state={data}/>}/>
-  <Route path="login" element={<Login/>}/>
+  <Route path="login" element={<Login/>} state={data}/>
   
   <Route path="logout" element={<Logout/>}/>
   </Route>
   <Route path= "/products" element={<ProductLayout/>}>
-    <Route path="productslist" element={<Product/>}/>
+    <Route path="productslist" element={<Protected component= {<Product/>}/>}/>
+    <Route path="studentslist" element={ <Protected component= {<Student/>}/>}/>
   <Route path='productdetails/:id/:category' element={<ProductDertails/>}/>
    </Route>
   
